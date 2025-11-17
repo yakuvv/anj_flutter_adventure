@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/CCS2801_PRACTICE/02_buttons.dart';
+import 'package:flutter_playground/CCS2801_PRACTICE/03_image.dart';
+import 'package:flutter_playground/CCS2801_PRACTICE/23_activity3_registration.dart';
+import 'package:flutter_playground/CCS2801_PRACTICE/23_activity3_signin.dart';
 import 'package:flutter_playground/ccs2801/18_add_snackbar.dart';
 import 'package:flutter_playground/ccs2801/19_add_navigation.dart';
 import 'package:flutter_playground/ccs2801/20_add_text_form_field.dart';
@@ -8,7 +12,6 @@ import 'package:flutter_playground/practice/screens/registration.dart';
 import 'package:flutter_playground/practice/screens/sign_in.dart';
 import 'package:flutter_playground/testings/columnrows.dart';
 import 'package:flutter_playground/testings/image_test.dart';
-import 'package:flutter_playground/testings/nervi_login.dart';
 import 'package:flutter_playground/testings/rows.dart';
 
 void main() {
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: const RowWidget(),
+      home: const Activity3SignIn(),
       debugShowCheckedModeBanner: false,
     );
   }

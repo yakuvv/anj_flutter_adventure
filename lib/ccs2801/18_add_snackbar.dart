@@ -7,7 +7,9 @@ class AddSnackBars extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(child: ElevatedButton(onPressed: (){
+        child: Center(
+          child: ElevatedButton(
+            onPressed: (){
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
