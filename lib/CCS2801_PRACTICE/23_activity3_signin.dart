@@ -64,32 +64,36 @@ class _Activity3SignInState extends State<Activity3SignIn> {
                   height: 20,
                 ),
 
-                CustomButton(
-                  text: 'CLEAR',
-                  onPressed: () {
-                    usernameController.clear();
-                    passwordController.clear();
-                  },
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                ),
-
-                SizedBox(
-                  height: 10,
-                ),
-
-                CustomButton(
-                  text: 'SIGN IN',
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (builder) => Activity3Registration(),
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomButton(
+                        text: 'CLEAR',
+                        onPressed: () {
+                          usernameController.clear();
+                          passwordController.clear();
+                        },
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
                       ),
-                    );
-                  },
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
+                    ),
+
+                    Expanded(
+                      child: CustomButton(
+                        text: 'SIGN IN',
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (builder) => Activity3Registration(),
+                            ),
+                          );
+                        },
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
