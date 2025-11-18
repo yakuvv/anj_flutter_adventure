@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: const  CompareTextValues(),
+      home: const  Activity3SignIn(),
       debugShowCheckedModeBanner: false,
     );
   }

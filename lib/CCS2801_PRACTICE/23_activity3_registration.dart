@@ -156,6 +156,8 @@ class _Activity3RegistrationState extends State<Activity3Registration> {
                     foregroundColor: Colors.white,
                   ),
 
+                  SizedBox(height: 10),
+
                   CustomButton(
                       text: 'SIGN IN',
                       onPressed: () {

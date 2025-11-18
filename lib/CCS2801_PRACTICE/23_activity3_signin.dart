@@ -78,6 +78,10 @@ class _Activity3SignInState extends State<Activity3SignIn> {
                       ),
                     ),
 
+                    SizedBox(
+                      width: 10,
+                    ),
+
                     Expanded(
                       child: CustomButton(
                         text: 'SIGN IN',
