@@ -35,7 +35,7 @@ class _Activity3RegistrationState extends State<Activity3Registration> {
                   CustomImage(
                     imagePath: 'assets/RegistrationScreen.png',
                       width: 10000,
-                    height: 1000,
+                    height: 100,
                   ),
 
                   SizedBox(
@@ -172,6 +172,12 @@ class _Activity3RegistrationState extends State<Activity3Registration> {
                       backgroundColor: Colors.blue,
                       foregroundColor: Colors.white,
                   ),
+
+
+
+
+
+
                 ],
               ),
             ),
