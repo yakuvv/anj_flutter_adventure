@@ -28,8 +28,6 @@ class _Activity3SignInState extends State<Activity3SignIn> {
               children: [
                 CustomImage(
                   imagePath: 'assets/SignInScreen.png',
-                  width: 1000,
-                  height: 300,
                 ),
 
                 Container(
@@ -93,8 +91,8 @@ class _Activity3SignInState extends State<Activity3SignIn> {
                             ),
                           );
                         },
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.yellow,
+                        foregroundColor: Colors.black,
                       ),
                     ),
                   ],

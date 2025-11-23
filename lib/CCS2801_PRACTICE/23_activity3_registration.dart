@@ -34,8 +34,6 @@ class _Activity3RegistrationState extends State<Activity3Registration> {
                 children: [
                   CustomImage(
                     imagePath: 'assets/RegistrationScreen.png',
-                      width: 10000,
-                    height: 100,
                   ),
 
                   SizedBox(
@@ -135,31 +133,7 @@ class _Activity3RegistrationState extends State<Activity3Registration> {
                   SizedBox(height: 10),
 
                   CustomButton(
-                    text: 'SUBMIT',
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                              'Registration submitted successfully.'
-                          ),
-                          action: SnackBarAction(label: 'OK', onPressed: (){
-                            showDialog(context: context, builder: (context) => AlertDialog(
-                              content: Text('Your registration has been submitted.'),
-                            ),
-                            );
-                          }
-                          ),
-                        ),
-                      );
-                    },
-                    backgroundColor: Colors.blue,
-                    foregroundColor: Colors.white,
-                  ),
-
-                  SizedBox(height: 10),
-
-                  CustomButton(
-                      text: 'SIGN IN',
+                      text: 'SUBMIT',
                       onPressed: () {
                     Navigator.push(
                       context,
@@ -169,15 +143,9 @@ class _Activity3RegistrationState extends State<Activity3Registration> {
                     ),
                     );
                       },
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.yellow,
+                      foregroundColor: Colors.black,
                   ),
-
-
-
-
-
-
                 ],
               ),
             ),
