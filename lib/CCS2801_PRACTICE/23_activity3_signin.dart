@@ -54,7 +54,7 @@ class _Activity3SignInState extends State<Activity3SignIn> {
                 CustomTextField(
                   label: 'Password',
                   hintText: 'Please provide your password.',
-                  icon: Icons.remove_red_eye,
+                  icon: Icons.password_outlined,
                   controller: passwordController,
                 ),
 

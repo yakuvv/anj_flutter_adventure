@@ -98,7 +98,7 @@ class _Activity3RegistrationState extends State<Activity3Registration> {
                   CustomTextField(
                     label: 'Department',
                     hintText: 'Please provide your department.',
-                    icon: Icons.admin_panel_settings,
+                    icon: Icons.admin_panel_settings_outlined,
                     controller: departmentController,
                   ),
 
@@ -109,7 +109,7 @@ class _Activity3RegistrationState extends State<Activity3Registration> {
                   CustomTextField(
                     label: 'College',
                     hintText: 'Please provide your college.',
-                    icon: Icons.add_card,
+                    icon: Icons.school_outlined,
                     controller: collegeController,
                   ),
 
