@@ -14,58 +14,23 @@ class MidtermSignIn extends StatefulWidget {
 class _MidtermSignInState extends State<MidtermSignIn> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  bool _obscurePassword = true;
-
-  @override
-  void dispose() {
-    usernameController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
-
-  void _showSnackBar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: Color(0xff0c71c3),
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        duration: Duration(seconds: 2),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xff0c71c3).withOpacity(0.1),
-              Colors.white,
-              Color(0xffe0ad3e).withOpacity(0.05),
-            ],
-          ),
-        ),
-        child: SafeArea(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
           child: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(24.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // Logo Section
-                  Hero(
-                    tag: 'logo',
-                    child: CustomImage(
-                      imagePath: 'assets/SignInScreen.png',
-                      height: 200,
-                    ),
+                  // Logo Image
+                  CustomImage(
+                    imagePath: 'assets/SignInScreen.png',
+                    height: 200,
                   ),
 
                   SizedBox(height: 40),
@@ -89,8 +54,7 @@ class _MidtermSignInState extends State<MidtermSignIn> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.grey[600],
-                      letterSpacing: 0.5,
+                      color: Colors.grey,
                     ),
                   ),
 
@@ -99,15 +63,8 @@ class _MidtermSignInState extends State<MidtermSignIn> {
                   // Divider Line
                   Container(
                     height: 3,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0xff0c71c3),
-                          Color(0xffe0ad3e),
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                    width: double.infinity,
+                    color: Color(0xff0c71c3),
                   ),
 
                   SizedBox(height: 40),
@@ -122,43 +79,13 @@ class _MidtermSignInState extends State<MidtermSignIn> {
 
                   SizedBox(height: 20),
 
-                  // Password Field with visibility toggle
+                  // Password Field
                   CustomTextField(
                     label: 'Password',
                     hintText: 'Enter your password',
-                    icon: _obscurePassword
-                        ? Icons.visibility_off_outlined
-                        : Icons.visibility_outlined,
+                    icon: Icons.lock_outline,
                     controller: passwordController,
-                    obscureText: _obscurePassword,
-                  ),
-
-                  SizedBox(height: 12),
-
-                  // Toggle Password Visibility
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton.icon(
-                      onPressed: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
-                      icon: Icon(
-                        _obscurePassword
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        size: 18,
-                        color: Color(0xff0c71c3),
-                      ),
-                      label: Text(
-                        _obscurePassword ? 'Show Password' : 'Hide Password',
-                        style: TextStyle(
-                          color: Color(0xff0c71c3),
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
+                    obscureText: true,
                   ),
 
                   SizedBox(height: 30),
@@ -170,7 +97,6 @@ class _MidtermSignInState extends State<MidtermSignIn> {
                     onPressed: () {
                       usernameController.clear();
                       passwordController.clear();
-                      _showSnackBar('Fields cleared');
                     },
                     backgroundColor: Colors.white,
                     foregroundColor: Color(0xff0c71c3),
@@ -184,17 +110,12 @@ class _MidtermSignInState extends State<MidtermSignIn> {
                     text: 'SIGN IN',
                     icon: Icons.login,
                     onPressed: () {
-                      if (usernameController.text.isEmpty ||
-                          passwordController.text.isEmpty) {
-                        _showSnackBar('Please fill in all fields');
-                      } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MidtermRegistration(),
-                          ),
-                        );
-                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MidtermRegistration(),
+                        ),
+                      );
                     },
                     backgroundColor: Color(0xff0c71c3),
                     foregroundColor: Colors.white,
@@ -209,7 +130,7 @@ class _MidtermSignInState extends State<MidtermSignIn> {
                       Text(
                         "Don't have an account? ",
                         style: TextStyle(
-                          color: Colors.grey[600],
+                          color: Colors.grey,
                           fontSize: 15,
                         ),
                       ),
@@ -241,7 +162,7 @@ class _MidtermSignInState extends State<MidtermSignIn> {
                     '© 2024 University Student Portal',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.grey[400],
+                      color: Colors.grey,
                       fontSize: 12,
                     ),
                   ),
