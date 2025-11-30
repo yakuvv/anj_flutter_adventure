@@ -14,6 +14,7 @@ class MidtermSignIn extends StatefulWidget {
 class _MidtermSignInState extends State<MidtermSignIn> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool _hidePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -85,15 +86,41 @@ class _MidtermSignInState extends State<MidtermSignIn> {
                     hintText: 'Enter your password',
                     icon: Icons.lock_outline,
                     controller: passwordController,
-                    obscureText: true,
+                    obscureText: _hidePassword,
                   ),
 
-                  SizedBox(height: 30),
+                  SizedBox(height: 12),
+
+                  // Show/Hide Password Button
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton.icon(
+                      onPressed: () {
+                        setState(() {
+                          _hidePassword = !_hidePassword;
+                        });
+                      },
+                      icon: Icon(
+                        _hidePassword ? Icons.visibility_off : Icons.visibility,
+                        size: 18,
+                        color: Color(0xff0c71c3),
+                      ),
+                      label: Text(
+                        _hidePassword ? 'Show Password' : 'Hide Password',
+                        style: TextStyle(
+                          color: Color(0xff0c71c3),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(height: 20),
 
                   // Clear Button
                   CustomButton(
                     text: 'CLEAR',
-                    icon: Icons.clear_all,
+                    icon: null,
                     onPressed: () {
                       usernameController.clear();
                       passwordController.clear();
@@ -108,7 +135,7 @@ class _MidtermSignInState extends State<MidtermSignIn> {
                   // Sign In Button
                   CustomButton(
                     text: 'SIGN IN',
-                    icon: Icons.login,
+                    icon: null,
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -159,7 +186,7 @@ class _MidtermSignInState extends State<MidtermSignIn> {
 
                   // Footer
                   Text(
-                    '© 2024 University Student Portal',
+                    '© 2024 Central Philippine University Student Portal',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey,

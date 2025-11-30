@@ -20,54 +20,44 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 56,
-      child: isOutlined
-          ? OutlinedButton.icon(
-        onPressed: onPressed,
-        icon: icon != null
-            ? Icon(icon, size: 22)
-            : SizedBox.shrink(),
-        label: Text(
-          text,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.2,
+    if (isOutlined) {
+      return SizedBox(
+        width: double.infinity,
+        height: 50,
+        child: OutlinedButton(
+          onPressed: onPressed,
+          style: OutlinedButton.styleFrom(
+            foregroundColor: foregroundColor,
+            side: BorderSide(color: foregroundColor, width: 2),
+          ),
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-        style: OutlinedButton.styleFrom(
-          foregroundColor: foregroundColor,
-          side: BorderSide(color: foregroundColor, width: 2.5),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+      );
+    } else {
+      return SizedBox(
+        width: double.infinity,
+        height: 50,
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: backgroundColor,
+            foregroundColor: foregroundColor,
+          ),
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-      )
-          : ElevatedButton.icon(
-        onPressed: onPressed,
-        icon: icon != null
-            ? Icon(icon, size: 22)
-            : SizedBox.shrink(),
-        label: Text(
-          text,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.2,
-          ),
-        ),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          elevation: 4,
-          shadowColor: backgroundColor.withOpacity(0.5),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-      ),
-    );
+      );
+    }
   }
 }

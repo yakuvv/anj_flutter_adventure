@@ -24,6 +24,11 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text('Student Registration'),
+        backgroundColor: Color(0xff0c71c3),
+        foregroundColor: Colors.white,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -32,7 +37,7 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Header Image
+                  // header Image
                   CustomImage(
                     imagePath: 'assets/RegistrationScreen.png',
                     height: 200,
@@ -40,7 +45,7 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
 
                   SizedBox(height: 30),
 
-                  // Title
+                  // title
                   Text(
                     'STUDENT REGISTRATION',
                     textAlign: TextAlign.center,
@@ -65,7 +70,7 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
 
                   SizedBox(height: 30),
 
-                  // Divider Line
+                  // divider Line
                   Container(
                     height: 3,
                     width: double.infinity,
@@ -74,7 +79,7 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
 
                   SizedBox(height: 30),
 
-                  // Last Name Field
+                  // last Name Field
                   CustomTextField(
                     label: 'Last Name',
                     hintText: 'Enter your last name',
@@ -84,7 +89,7 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
 
                   SizedBox(height: 16),
 
-                  // First Name Field
+                  // first Name Field
                   CustomTextField(
                     label: 'First Name',
                     hintText: 'Enter your first name',
@@ -94,28 +99,27 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
 
                   SizedBox(height: 16),
 
-                  // Email Field
+                  // email Field
                   CustomTextField(
                     label: 'Email Address',
-                    hintText: 'Enter your CPU email',
+                    hintText: 'Enter your university email',
                     icon: Icons.email_outlined,
                     controller: emailController,
-                    keyboardType: TextInputType.emailAddress,
                   ),
 
                   SizedBox(height: 16),
 
-                  // Course Field
+                  // course Field
                   CustomTextField(
                     label: 'Course',
-                    hintText: 'e.g., BS Computer Science',
+                    hintText: 'e.g., Computer Science',
                     icon: Icons.school_rounded,
                     controller: courseController,
                   ),
 
                   SizedBox(height: 16),
 
-                  // Year Field
+                  // year Field
                   CustomTextField(
                     label: 'Year Level',
                     hintText: 'e.g., 1st Year, 2nd Year',
@@ -125,27 +129,27 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
 
                   SizedBox(height: 16),
 
-                  // Department Field
+                  // department Field
                   CustomTextField(
                     label: 'Department',
-                    hintText: 'Enter your Department',
+                    hintText: 'Enter your department',
                     icon: Icons.admin_panel_settings_outlined,
                     controller: departmentController,
                   ),
 
                   SizedBox(height: 16),
 
-                  // College Field
+                  // college Field
                   CustomTextField(
                     label: 'College',
-                    hintText: 'Enter your College',
+                    hintText: 'Enter your college',
                     icon: Icons.school_outlined,
                     controller: collegeController,
                   ),
 
                   SizedBox(height: 30),
 
-                  // Clear Button
+                  // clear Button
                   CustomButton(
                     text: 'CLEAR',
                     icon: Icons.clear_all,
@@ -165,17 +169,57 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
 
                   SizedBox(height: 16),
 
-                  // Submit Button
+                  // submit Button
                   CustomButton(
                     text: 'SUBMIT',
                     icon: Icons.check_circle,
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MidtermSignIn(),
-                        ),
-                      );
+                      // check if all fields are filled
+                      if (lastNameController.text.isEmpty ||
+                          firstNameController.text.isEmpty ||
+                          emailController.text.isEmpty ||
+                          courseController.text.isEmpty ||
+                          yearController.text.isEmpty ||
+                          departmentController.text.isEmpty ||
+                          collegeController.text.isEmpty) {
+
+                        // will show error dialog if fields are empty
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text('Error'),
+                            content: Text('Please fill in all fields!'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          ),
+                        );
+                      } else {
+                        // will show success dialog if all fields are filled
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text('Success!'),
+                            content: Text(
+                              'Welcome, ${firstNameController.text} ${lastNameController.text}!\n\nRegistration Completed.\n\nYou will be redirected to the sign-in page.',
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                },
+                                child: Text('Continue'),
+                              ),
+                            ],
+                          ),
+                        );
+                      }
                     },
                     backgroundColor: Color(0xff0c71c3),
                     foregroundColor: Colors.white,
@@ -188,7 +232,7 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Already have an account?',
+                        'Already have an account? ',
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 15,
@@ -211,7 +255,6 @@ class _MidtermRegistrationState extends State<MidtermRegistration> {
                   ),
 
                   SizedBox(height: 20),
-
                 ],
               ),
             ),
