@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbasics_50/CCS2801_PRACTICE/02_buttons.dart';
-import 'package:flutterbasics_50/CCS2801_PRACTICE/03_image.dart';
-import 'package:flutterbasics_50/Carias_Final_CCS2801/widget/ccs_contacts.dart';
-import 'package:flutterbasics_50/Carias_Final_CCS2801/widget/ccs_facilities.dart';
-import 'package:flutterbasics_50/Carias_Final_CCS2801/widget/ccs_history.dart';
-import 'package:flutterbasics_50/Carias_Final_CCS2801/widget/ccs_linkages.dart';
-import 'package:flutterbasics_50/Carias_Final_CCS2801/widget/ccs_mission_vision.dart';
-import 'package:flutterbasics_50/Carias_Final_CCS2801/widget/ccs_organzations.dart';
-import 'package:flutterbasics_50/Carias_Final_CCS2801/widget/ccs_programs.dart';
+import 'package:flutter_playground/Carias_Final_CCS2801/widget/ccs_contacts.dart';
+import 'package:flutter_playground/Carias_Final_CCS2801/widget/ccs_facilities.dart';
+import 'package:flutter_playground/Carias_Final_CCS2801/widget/ccs_history.dart';
+import 'package:flutter_playground/Carias_Final_CCS2801/widget/ccs_linkages.dart';
+import 'package:flutter_playground/Carias_Final_CCS2801/widget/ccs_mission_vision.dart';
+import 'package:flutter_playground/Carias_Final_CCS2801/widget/ccs_organzations.dart';
+import 'package:flutter_playground/Carias_Final_CCS2801/widget/ccs_programs.dart';
 
+import '../CCS2801_PRACTICE/02_buttons.dart';
+import '../CCS2801_PRACTICE/03_image.dart';
 
 class CCSMainScreen extends StatelessWidget {
   const CCSMainScreen({super.key});
