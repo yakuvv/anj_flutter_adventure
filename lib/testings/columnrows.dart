@@ -86,7 +86,7 @@ class ColumnRows extends StatelessWidget {
                     Container(
                       color: Colors.green,
                       height: 104,
-                      width: 100,
+                      width: 105,
                     ),
                     SizedBox(width: 10,),
                     Container(
