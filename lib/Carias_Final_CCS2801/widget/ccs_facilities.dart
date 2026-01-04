@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../CCS2801_PRACTICE/03_image.dart';
 import '../cards/facilities_card.dart';
 
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../widgets/01_text_fields.dart';
 import '../widgets/02_buttons.dart';
 import '../widgets/03_image.dart';
-import '24_midterm_signin.dart';
 
 class MidtermRegistration extends StatefulWidget {
   const MidtermRegistration({super.key});
